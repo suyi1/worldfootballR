@@ -170,7 +170,7 @@ get_advanced_match_stats <- function(match_url, stat_type, team_or_player, time_
     final_df <- match_url %>%
       purrr::map_df(get_each_match_statistic) )
 
-  seasons <- read.csv("https://raw.githubusercontent.com/JaseZiv/worldfootballR_data/master/raw-data/all_leages_and_cups/all_competitions.csv", stringsAsFactors = F)
+  seasons <- read.csv("D:/sugs/football/data/all_competitions.csv", stringsAsFactors = F)
 
   seasons <- seasons %>%
     dplyr::filter(.data$seasons_urls %in% final_df$League_URL) %>%
