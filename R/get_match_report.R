@@ -12,7 +12,7 @@
 
 .get_match_report_page <- function(match_page) {
 
-  # seasons <- read.csv("https://raw.githubusercontent.com/JaseZiv/worldfootballR_data/master/raw-data/all_leages_and_cups/all_competitions.csv", stringsAsFactors = F)
+  # seasons <- read.csv("D:/sugs/football/data/all_competitions.csv", stringsAsFactors = F)
 
   Game_URL <- match_page %>% rvest::html_nodes(".langs") %>% rvest::html_node(".en") %>% rvest::html_attr("href")
   each_game_page <- tryCatch(match_page, error = function(e) NA)
@@ -116,7 +116,7 @@ get_match_report <- function(match_url, time_pause=2) {
   all_games <- match_url %>%
     purrr::map_df(each_match_report)
 
-  seasons <- read.csv("https://raw.githubusercontent.com/JaseZiv/worldfootballR_data/master/raw-data/all_leages_and_cups/all_competitions.csv", stringsAsFactors = F)
+  seasons <- read.csv("D:/sugs/football/data/all_competitions.csv", stringsAsFactors = F)
 
   seasons <- seasons %>%
     dplyr::filter(.data$seasons_urls %in% all_games$League_URL) %>%
