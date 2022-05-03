@@ -29,7 +29,7 @@ fb_league_urls <- function(country, gender, season_end_year, tier = "1st") {
   season_end_year_num <- season_end_year
   comp_tier <- tier
 
-  seasons <- read.csv("https://raw.githubusercontent.com/JaseZiv/worldfootballR_data/master/raw-data/all_leages_and_cups/all_competitions.csv", stringsAsFactors = F)
+  seasons <- read.csv("D:/sugs/football/data/all_competitions.csv", stringsAsFactors = F)
 
   league_seasons_urls <- seasons %>%
     dplyr::filter(.data$country %in% country_abbr,
@@ -138,7 +138,7 @@ tm_league_team_urls <- function(country_name, start_year, league_url = NA) {
   main_url <- "https://www.transfermarkt.com"
 
   if(is.na(league_url)) {
-    meta_df <- read.csv(url("https://raw.githubusercontent.com/JaseZiv/worldfootballR_data/master/raw-data/transfermarkt_leagues/main_comp_seasons.csv"),
+    meta_df <- read.csv("D:/sugs/football/data/main_comp_seasons.csv",
                         stringsAsFactors = F)
 
     tryCatch({meta_df_seasons <- meta_df %>%
